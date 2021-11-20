@@ -1,25 +1,27 @@
+import { Link } from 'react-router-dom'
+
 const Navbar = () => {
     return (
         <div>
             <ul style={{ display: 'flex', justifyContent: 'space-evenly' }} >
                 <li>
-                    <a href="/login">Login</a>
+                    <Link to="/login">Login</Link>
                 </li>
                 <li>
-                    <a href="/signup">Signup</a>
+                    <Link to="/signup">Signup</Link>
                 </li>
 
                 <li>
-                    <a href="/">Home</a>
+                    <Link to="/">Home</Link>
                 </li>
                 <li>
-                    <a href="/products">Products</a>
+                    <Link to="/products">Products</Link>
                 </li>
                 <li>
-                    <a href="/order">Order</a>
+                    <Link to="/order">Order</Link>
                 </li>
                 <li>
-                    <a href="/admin">Admin</a>
+                    <Link to="/admin">Admin</Link>
                 </li>
             </ul>
         </div>
