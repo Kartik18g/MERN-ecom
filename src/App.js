@@ -6,10 +6,12 @@ import Order from "./components/Order";
 import Product from "./components/Product";
 import Products from "./components/Products";
 import Signup from "./components/Signup";
+import Navbar from './layout/Navbar'
 
 const App = () => {
   return (
     <div>
+      <Navbar />
       <Home />
       <Login />
       <Signup />

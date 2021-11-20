@@ -1,8 +1,7 @@
 const initialState = {
-    token: null
+    isLoading: false
 }
-
-const authReducer = (state = initialState, action) => {
+const loaderReducer = (state = initialState, action) => {
     const { type, payload } = action
 
     switch (type) {
@@ -13,4 +12,4 @@ const authReducer = (state = initialState, action) => {
 }
 
 
-export default authReducer
+export default loaderReducer

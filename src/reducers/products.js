@@ -1,8 +1,7 @@
 const initialState = {
-    token: null
+    products: []
 }
-
-const authReducer = (state = initialState, action) => {
+const productsReducer = (state = initialState, action) => {
     const { type, payload } = action
 
     switch (type) {
@@ -13,4 +12,4 @@ const authReducer = (state = initialState, action) => {
 }
 
 
-export default authReducer
+export default productsReducer
