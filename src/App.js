@@ -1,27 +1,27 @@
-import AdminPage from "./components/AdminPage";
 import Home from "./components/Home";
-import Login from "./components/Login";
-import MyOrders from "./components/MyOrders";
-import Order from "./components/Order";
-import Product from "./components/Product";
 import Products from "./components/Products";
-import Signup from "./components/Signup";
-import Navbar from './layout/Navbar'
+import Navbar from "./layout/Navbar";
 import { Routes, Route } from 'react-router-dom'
-import PrivateRoute from "./routing/PrivateRoute";
 
-const App = () => {
+import Product from "./components/Product/Product";
+import Footer from "./layout/Footer";
+import Login from "./components/auth/Login";
+import SignUp from "./components/auth/SignUp";
+function App() {
+
   return (
-    <div>
+    <div className="App">
       <Navbar />
-
+      {/* <Home /> */}
       <Routes>
         <Route path='/' element={<Home />} />
+        <Route path='/shop' element={<Products />} />
+        <Route path='/shop/:productId' element={<Product />} />
         <Route path='/login' element={<Login />} />
-        <Route path='/signup' element={<Signup />} />
-        <Route path='/products' element={<Product />} />
-        <Route path='/admin' element={<AdminPage />} />
+        <Route path='/signup' element={<SignUp />} />
       </Routes>
+      <Footer />
+
     </div>
   );
 }
