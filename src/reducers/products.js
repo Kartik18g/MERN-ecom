@@ -22,7 +22,8 @@ const initialState = {
             category: "Watch band",
             compatibleWith: "Apple Watch 38mm, 40mm, 41mm",
             color: 'Pomegrenate',
-            imageUrl: 'https://cdn.shopify.com/s/files/1/0984/6842/products/Red-Fusion-38-40_1024x1024.jpg?v=1611006835'
+            imageUrl: 'https://cdn.shopify.com/s/files/1/0984/6842/products/Red-Fusion-38-40_1024x1024.jpg?v=1611006835',
+            stock: 10,
         }, {
             id: 2,
             productName: 'Watch Band',
@@ -33,7 +34,8 @@ const initialState = {
             category: "Watch band",
             compatibleWith: "Apple Watch 42mm, 44mm, 45mm",
             color: 'Orange',
-            imageUrl: 'https://cdn.shopify.com/s/files/1/0984/6842/products/Pomegranate-40_1024x1024.jpg?v=1620410372'
+            stock: 119,
+            imageUrl: 'https://cdn.shopify.com/s/files/1/0984/6842/products/Pomegranate-40_1024x1024.jpg?v=1620410372',
         }
         , {
             id: 3,
@@ -45,12 +47,16 @@ const initialState = {
             category: "Watch band",
             compatibleWith: "Apple Watch 42mm, 44mm, 45mm",
             color: 'Blue',
+            stock: 8,
+
             imageUrl: 'https://cdn.shopify.com/s/files/1/0984/6842/products/Sport_Loop-Midnight-40_1024x1024.jpg?v=1620410372'
         }
         , {
             id: 4,
             productName: 'Iphone 12 Case',
             description: "Toned up for aesthetically pleasing design. Soft coated silicone on the outside, and microfiber lining on the inside..",
+            stock: 29,
+
             actualPrice: "$40",
             listingPrice: "$39",
             // TODO use id 
@@ -63,6 +69,7 @@ const initialState = {
             id: 5,
             productName: 'Iphone 12 Case',
             description: "Toned up for aesthetically pleasing design. Soft coated silicone on the outside, and microfiber lining on the inside..",
+            stock: 5,
             actualPrice: "$40",
             listingPrice: "$39",
             // TODO use id 
@@ -77,6 +84,16 @@ const productsReducer = (state = initialState, action) => {
     const { type, payload } = action
 
     switch (type) {
+        case 'DELETE_PRODUCT':
+            const { productId } = payload
+            return {
+                products: state.products.filter(prod => prod.id !== productId)
+            }
+        case 'ADD_PRODUCT':
+            const { product } = payload
+            return {
+                products: [...state.products, product]
+            }
         default:
             return state
     }

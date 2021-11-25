@@ -3,7 +3,7 @@ import jwt from 'jsonwebtoken'
 export const loginUser = (email, password) => {
     // VERIFY EMAIL AND PASSWORD
     // create and sign a JWT
-    const users = JSON.parse(localStorage.getItem('users'))
+    const users = JSON.parse(localStorage.getItem('users')) ?? []
     const user = users.find(u => u.email === email)
 
     if (user.password === password) {

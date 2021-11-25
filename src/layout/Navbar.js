@@ -191,5 +191,10 @@ const NAV_ITEMS = [
         to: '/shop?q=watch'
 
     },
+    {
+        label: 'Admin',
+        to: '/admin'
+
+    },
 
 ];
