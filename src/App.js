@@ -8,12 +8,14 @@ import Footer from "./layout/Footer";
 import Login from "./components/auth/Login";
 import SignUp from "./components/auth/SignUp";
 import Admin from "./components/admin/Admin";
+import { Toaster } from "react-hot-toast";
 function App() {
 
   return (
     <div className="App">
       <Navbar />
       {/* <Home /> */}
+      <Toaster />
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/shop' element={<Products />} />

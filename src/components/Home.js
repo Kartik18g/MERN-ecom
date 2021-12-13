@@ -7,6 +7,7 @@ import {
     Text,
     useBreakpointValue,
 } from '@chakra-ui/react';
+import { Link } from 'react-router-dom'
 
 export default function Home() {
     return (
@@ -27,11 +28,11 @@ export default function Home() {
                                 bg: 'blue.400',
                                 zIndex: -1,
                             }}>
-                            Freelance
+                            Accessories
                         </Text>
                         <br />{' '}
-                        <Text color={'blue.400'} as={'span'}>
-                            Design Projects
+                        <Text color={'red.400'} as={'span'}>
+                            That you'll love ❤️
                         </Text>{' '}
                     </Heading>
                     <Text fontSize={{ base: 'md', lg: 'lg' }} color={'gray.500'}>
@@ -40,15 +41,17 @@ export default function Home() {
                     </Text>
                     <Stack direction={{ base: 'column', md: 'row' }} spacing={4}>
                         <Button
+                            as={Link}
+                            to={'/shop'}
                             rounded={'full'}
-                            bg={'blue.400'}
+                            bg={'red.400'}
                             color={'white'}
                             _hover={{
                                 bg: 'blue.500',
                             }}>
-                            Create Project
+                            Shop
                         </Button>
-                        <Button rounded={'full'}>How It Works</Button>
+                        <Button rounded={'full'}>About Us</Button>
                     </Stack>
                 </Stack>
             </Flex>
@@ -57,7 +60,7 @@ export default function Home() {
                     alt={'Login Image'}
                     objectFit={'cover'}
                     src={
-                        'https://images.unsplash.com/photo-1527689368864-3a821dbccc34?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'
+                        'https://images.unsplash.com/photo-1624823183493-ed5832f48f18?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1180&q=80'
                     }
                 />
             </Flex>
