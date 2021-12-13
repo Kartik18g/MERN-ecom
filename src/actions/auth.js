@@ -32,3 +32,34 @@ export const loginUser = (email, password) => async (dispatch) => {
         toast.error(error.message)
     }
 };
+
+
+export const signupUser = (email, firstName, lastName, password) => async (dispatch) => {
+
+    try {
+        const base_Url = 'http://localhost:8080'
+
+        const res = await axios.post(`${base_Url}/api/v1/auth/signup`, {
+            email, firstName, lastName, password
+        })
+        const { user } = res.data
+        if (user) {
+            toast.success('Signup Success')
+            dispatch({
+                type: "SIGNUP_SUCCESS",
+                payload: {
+                    signup: true
+                }
+            })
+        } else {
+            toast.error('Signup Failed')
+            dispatch({
+                type: "SIGNUP_FAILED",
+                payload: { signup: false }
+            })
+        }
+    } catch (error) {
+        console.log(error.message)
+        toast.error(error.message)
+    }
+};
