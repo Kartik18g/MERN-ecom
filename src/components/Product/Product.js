@@ -62,16 +62,6 @@ export default function Product() {
     console.log(selectedProduct)
 
     const addCart = (item) => {
-        // const cartItems = JSON.parse(localStorage.getItem('cart')) || []
-        // console.log(cartItems)
-        // console.log(cartItems.includes(item))
-        // if (!cartItems.find(i => i._id === item._id)) {
-        //     cartItems.push(item)
-        //     localStorage.setItem("cart", JSON.stringify(cartItems))
-        //     toast.success(`${item.name} added to cart`)
-        // } else {
-        //     toast.error(`${item.name} is already in your cart`)
-        // }
         dispatch(addToCart(item))
     }
 
