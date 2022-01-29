@@ -94,6 +94,11 @@ const productsReducer = (state = initialState, action) => {
             return {
                 products: [...state.products, product]
             }
+        case 'GET_PRODUCTS':
+            const { products } = payload
+            return {
+                products: [...products]
+            }
         default:
             return state
     }

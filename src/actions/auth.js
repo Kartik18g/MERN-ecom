@@ -7,7 +7,7 @@ import { toast } from 'react-hot-toast'
 export const loginUser = (email, password) => async (dispatch) => {
 
     try {
-        const base_Url = 'https://9bef-2405-201-5804-18b2-c1db-cc61-a363-8d3e.ngrok.io'
+        const base_Url = 'http://localhost:8080'
 
         const res = await axios.post(`${base_Url}/api/v1/auth/login`, {
             email, password

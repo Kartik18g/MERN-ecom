@@ -11,6 +11,9 @@ import SignUp from "./components/auth/SignUp";
 import Admin from "./components/admin/Admin";
 import { Toaster } from "react-hot-toast";
 import { useDispatch } from 'react-redux';
+import Cart from './components/cart/Cart';
+import { getProducts } from './actions/product';
+import { loadCart } from './actions/cart';
 function App() {
 
   const dispatch = useDispatch()
@@ -30,6 +33,12 @@ function App() {
 
   }, [])
 
+  useEffect(() => {
+    console.log('lorem')
+    dispatch(getProducts())
+    dispatch(loadCart())
+  }, [])
+
   return (
     <div className="App">
       <Navbar />
@@ -42,6 +51,7 @@ function App() {
         <Route path='/login' element={<Login />} />
         <Route path='/signup' element={<SignUp />} />
         <Route path='/admin' element={<Admin />} />
+        <Route path='/cart' element={<Cart />} />
       </Routes>
       <Footer />
 

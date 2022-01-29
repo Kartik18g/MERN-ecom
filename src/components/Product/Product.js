@@ -19,10 +19,15 @@ import {
     IoScanOutline,
     IoSearchSharp,
     IoShieldCheckmarkOutline,
+    IoCartOutline
 } from 'react-icons/io5';
+import { toast } from 'react-hot-toast'
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router';
 import Values from '../Values';
+import Details from './Details';
+import { useDispatch } from 'react-redux';
+import { addToCart } from '../../actions/cart';
 
 
 const Feature = ({ text, icon, iconBg }) => {
@@ -44,18 +49,32 @@ const Feature = ({ text, icon, iconBg }) => {
 
 export default function Product() {
     const [selectedProduct, setSelectedproduct] = useState(null)
+    const dispatch = useDispatch()
     const { products } = useSelector(state => state.products)
     const { productId } = useParams()
-
     const fetchProduct = (productId) => {
-        const product = products.find(product => product.id == productId)
+        const product = products.find(product => product._id == productId)
         setSelectedproduct(product)
     }
     useEffect(() => {
         fetchProduct(productId)
-    }, [])
-
+    }, [products])
     console.log(selectedProduct)
+
+    const addCart = (item) => {
+        // const cartItems = JSON.parse(localStorage.getItem('cart')) || []
+        // console.log(cartItems)
+        // console.log(cartItems.includes(item))
+        // if (!cartItems.find(i => i._id === item._id)) {
+        //     cartItems.push(item)
+        //     localStorage.setItem("cart", JSON.stringify(cartItems))
+        //     toast.success(`${item.name} added to cart`)
+        // } else {
+        //     toast.error(`${item.name} is already in your cart`)
+        // }
+        dispatch(addToCart(item))
+    }
+
     return (
         <Container maxW={'7xl'} py={12}>
             <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10}>
@@ -79,7 +98,7 @@ export default function Product() {
                         p={2}
                         alignSelf={'flex-start'}
                         rounded={'md'}>
-                        {selectedProduct && selectedProduct.category}
+                        {selectedProduct && selectedProduct.category.name}
                     </Text>
                     <Heading>{selectedProduct && selectedProduct.name}</Heading>
                     <Text color={'gray.500'} fontSize={'lg'}>
@@ -116,6 +135,9 @@ export default function Product() {
                     </Stack>
                     <Flex justifyContent={'space-between'} spacing={10} pt={2}>
                         <Button
+                            onClick={() => {
+                                addCart(selectedProduct)
+                            }}
                             flexGrow={'4'}
                             loadingText="Submitting"
                             size="lg"
@@ -124,9 +146,9 @@ export default function Product() {
                             _hover={{
                                 bg: 'blue.400',
                             }}>
-                            Buy Now
+                            Add To Cart &nbsp; &nbsp; <IoCartOutline size={30} />
                         </Button>
-                        <Heading color={'gray.900'} textAlign={'center'} borderRadius={'10px'} flexGrow={'2'} background={'gray.100'}>{selectedProduct && selectedProduct.listingPrice}</Heading>
+                        <Heading color={'gray.900'} textAlign={'center'} borderRadius={'10px'} flexGrow={'2'} background={'gray.100'}> $ {selectedProduct && selectedProduct.listPrice}</Heading>
                     </Flex>
                 </Stack>
 

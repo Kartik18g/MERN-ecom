@@ -21,7 +21,7 @@ export default function Products() {
                 </Flex>
             </Box>
             <Flex justifyContent={'center'} flexWrap={'wrap'} >
-                {products.map(product => <Link to={`/shop/${product.id}`} as={lee} ><ProductCard data={product} /></Link>)}
+                {products.map(product => <Link to={`/shop/${product._id}`} as={lee} ><ProductCard data={product} /></Link>)}
             </Flex>
         </Box >
     );

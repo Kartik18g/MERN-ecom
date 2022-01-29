@@ -22,8 +22,8 @@ const AddProduct = () => {
     const [description, setdescription] = useState('')
     const [category, setcategory] = useState('')
     const [color, setcolor] = useState('')
-    const [listingPrice, setlistingPrice] = useState('')
-    const [actualPrice, setactualPrice] = useState('')
+    const [listPrice, setlistPrice] = useState('')
+    const [price, setprice] = useState('')
     const [stock, setstock] = useState(0)
     const [categories, setCategories] = useState([])
 
@@ -40,11 +40,11 @@ const AddProduct = () => {
     }, [])
 
     const handleAddProduct = () => {
-        // dispatch(addProduct({
-        //     name, imageUrl, description, category, color, listingPrice, actualPrice, stock
-        // }))
+        dispatch(addProduct({
+            name, imageUrl, description, category, color, listPrice, price, stock
+        }))
         console.log({
-            name, imageUrl, description, category, color, listingPrice, actualPrice, stock
+            name, imageUrl, description, category, color, listPrice, price, stock
         })
     }
 
@@ -72,9 +72,9 @@ const AddProduct = () => {
                 <FormLabel>Product color</FormLabel>
                 <Input onChange={(e) => { setcolor(e.target.value) }} type="text" />
                 <FormLabel> Actual Price</FormLabel>
-                <Input onChange={(e) => { setactualPrice(e.target.value) }} type="number" />
+                <Input onChange={(e) => { setprice(e.target.value) }} type="number" />
                 <FormLabel> Listing Price</FormLabel>
-                <Input onChange={(e) => { setlistingPrice(e.target.value) }} type="number" />
+                <Input onChange={(e) => { setlistPrice(e.target.value) }} type="number" />
                 <FormLabel> Stock</FormLabel>
                 <Input onChange={(e) => { setstock(e.target.value) }} type="number" />
                 <Button onClick={handleAddProduct} marginTop={4} color={'white'} bg={'blue.400'}>Submit</Button>

@@ -10,7 +10,7 @@ import {
 
 
 const ProductCard = ({ data }) => {
-    const { imageUrl, actualPrice, listingPrice, productName, color } = data
+    const { imageUrl, actualPrice, listingPrice, name, color } = data
     return (
         <Box
             role={'group'}
@@ -58,7 +58,7 @@ const ProductCard = ({ data }) => {
                     +plus
                 </Text>
                 <Heading fontSize={'2xl'} fontFamily={'body'} fontWeight={500}>
-                    {`${productName}, ${color}`}
+                    {`${name}, ${color}`}
                 </Heading>
                 <Stack direction={'row'} align={'center'}>
                     <Text color={'gray.700'} fontWeight={800} fontSize={'xl'}>
