@@ -34,7 +34,6 @@ function App() {
   }, [])
 
   useEffect(() => {
-    console.log('lorem')
     dispatch(getProducts())
     dispatch(loadCart())
   }, [])
