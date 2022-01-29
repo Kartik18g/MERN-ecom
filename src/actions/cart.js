@@ -29,6 +29,7 @@ export const modifyQuantity = (item, quantity) => async (dispatch) => {
             return { ...i }
         }
     })
+    // !just add the values
     let total = 0
     localStorage.setItem('cart', JSON.stringify(newArr))
     newArr.forEach(i => {
@@ -47,6 +48,7 @@ export const deleteItem = (item) => async (dispatch) => {
     const newArr = cartItems.filter(i => i._id !== item._id)
     let total = 0
     localStorage.setItem('cart', JSON.stringify(newArr))
+    //! just subtract the value
     newArr.forEach(i => {
         total += i.quantity ? parseInt(i.quantity) : 1
     })
