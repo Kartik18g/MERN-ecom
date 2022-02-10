@@ -81,7 +81,7 @@ export const CartOrderSummary = ({ total }) => {
                     razorpaySignature: response.razorpay_signature,
                 };
 
-                const result = await axios.post("http://localhost:5000/payment/success", data);
+                const result = await axios.post("http://localhost:8080/api/v1/order/verify", data);
 
                 alert(result.data.msg);
             },
@@ -91,7 +91,7 @@ export const CartOrderSummary = ({ total }) => {
                 contact: "9999999999",
             },
             notes: {
-                address: "Bellevue 98004",
+                address: "Model Town, New Delhi",
             },
             theme: {
                 color: "#61dafb",
